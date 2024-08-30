@@ -2,7 +2,9 @@
 
 // get the app data
 
-$rawAppData = file_get_contents('app.json');
+$configFile = getenv('GITHUB_WORKSPACE') . '/app.json';
+
+$rawAppData = file_get_contents($configFile);
 
 $appData = json_decode($rawAppData, true);
 
