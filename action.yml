@@ -1,3 +1,5 @@
+name: "Service Config Validator"
+description: "Validates service configuration files"
 runs:
   using: "composite"
   steps:
@@ -7,5 +9,6 @@ runs:
         php-version: '8.2'
 
     - name: Run PHP Script
+      shell: bash  # Adicionei o shell
       run: |
         php app.php
