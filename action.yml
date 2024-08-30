@@ -8,10 +8,8 @@ runs:
       with:
         php-version: '8.2'
 
-    - name: List files in current directory
-      shell: bash
-      run: |
-        readlink -f .
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     - name: Run PHP Script
       shell: bash
