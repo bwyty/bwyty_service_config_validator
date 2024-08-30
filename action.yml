@@ -8,7 +8,12 @@ runs:
       with:
         php-version: '8.2'
 
+    - name: List files in current directory
+      shell: bash
+      run: |
+        ls -al
+
     - name: Run PHP Script
-      shell: bash  # Adicionei o shell
+      shell: bash
       run: |
         php app.php
