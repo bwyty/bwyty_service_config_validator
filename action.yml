@@ -11,7 +11,7 @@ runs:
     - name: List files in current directory
       shell: bash
       run: |
-        ls -al
+        readlink -f .
 
     - name: Run PHP Script
       shell: bash
