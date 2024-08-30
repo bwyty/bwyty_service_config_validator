@@ -16,4 +16,4 @@ runs:
     - name: Run PHP Script
       shell: bash
       run: |
-        php app.php
+        php $GITHUB_ACTION_PATH/app.php
