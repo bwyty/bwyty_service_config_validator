@@ -4,13 +4,13 @@ namespace Bwyty\ServiceConfigValidator\Service\Validation;
 
 use Swaggest\JsonSchema\Schema;
 
-class QueueConfigValidation implements ValidationInterface
+class CloudTasksConfigValidation implements ValidationInterface
 {
 
     private $schema;
 
     public function __construct() {
-        $schemaJson = file_get_contents(__DIR__ . '/queue_json_schema.json');
+        $schemaJson = file_get_contents(__DIR__ . '/cloud_tasks_json_schema.json');
 
         $this->schema = Schema::import(json_decode($schemaJson));
     }
@@ -27,10 +27,10 @@ class QueueConfigValidation implements ValidationInterface
 
     public function validate(mixed $data)
     {
-        if(!isset($data->queue)) {
-            throw new \Exception('Queue configuration is required');
+        if(!isset($data->cloud_tasks)) {
+            return;
         }
 
-        $this->schema->in($data->queue);
+        $this->schema->in($data->cloud_tasks);
     }
 }
