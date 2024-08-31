@@ -22,9 +22,8 @@ class ValidateCommand
         $appData = $this->configDataCatcher->catchConfigData();
 
         foreach ($this->validationStack->validate($appData) as $key => $name) {
-            $output->writeln(PHP_EOL);
             match ($key) {
-                'start' => $output->writeln("<info>-> Starting validation: $name</info>"),
+                'start' => $output->writeln(PHP_EOL . "<info>-> Starting validation: $name</info>"),
                 'description' => $output->writeln("-> $name"),
                 'end' => $output->writeln("<fg=green>-> Finished validation: $name</>"),
             };
