@@ -19,7 +19,7 @@ class ConfigDataCatcher implements ConfigDataCatcherInterface {
             throw new \Exception('Could not read app.json');
         }
 
-        $appData = json_decode($rawAppData, true);
+        $appData = json_decode($rawAppData);
 
         if(json_last_error() !== JSON_ERROR_NONE) {
             throw new \Exception('Invalid JSON format');
