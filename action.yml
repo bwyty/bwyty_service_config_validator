@@ -19,4 +19,4 @@ runs:
     - name: Run PHP Script
       shell: bash
       run: |
-        php $GITHUB_ACTION_PATH/config/boot.php
+        php $GITHUB_ACTION_PATH/config/boot.php validate
