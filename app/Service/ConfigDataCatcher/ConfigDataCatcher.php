@@ -6,7 +6,7 @@ use Bwyty\ServiceConfigValidator\Service\ConfigDataCatcher\ConfigDataCatcherInte
 
 class ConfigDataCatcher implements ConfigDataCatcherInterface {
 
-    public function catchConfigData(): array {
+    public function catchConfigData(): mixed {
         $configFile = getenv('GITHUB_WORKSPACE') . '/app.json';
 
         if(!file_exists($configFile)) {

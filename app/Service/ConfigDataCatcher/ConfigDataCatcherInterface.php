@@ -4,5 +4,5 @@ namespace Bwyty\ServiceConfigValidator\Service\ConfigDataCatcher;
 
 interface ConfigDataCatcherInterface
 {
-    public function catchConfigData(): array;
+    public function catchConfigData(): mixed;
 }
