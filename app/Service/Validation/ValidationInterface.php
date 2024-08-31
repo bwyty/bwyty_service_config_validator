@@ -8,6 +8,6 @@ interface ValidationInterface {
 
     public function getValidationDescription(): string;
 
-    public function validate(array $data);
+    public function validate(mixed $data);
 
 }

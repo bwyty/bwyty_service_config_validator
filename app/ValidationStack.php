@@ -12,7 +12,7 @@ class ValidationStack {
         $this->validations[] = $validation;
     }
 
-    public function validate(array $data): \Generator {
+    public function validate(mixed $data): \Generator {
         foreach($this->validations as $validation) {
             yield 'start' => $validation->getValidationName();
 

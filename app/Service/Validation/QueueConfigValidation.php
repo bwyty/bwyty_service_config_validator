@@ -25,12 +25,12 @@ class QueueConfigValidation implements ValidationInterface
         return 'Validates the queue configuration';
     }
 
-    public function validate(array $data)
+    public function validate(mixed $data)
     {
-        if(!isset($data['queue'])) {
+        if(!isset($data->queue)) {
             throw new \Exception('Queue configuration is required');
         }
 
-        $this->schema->in($data['queue']);
+        $this->schema->in($data->queue);
     }
 }

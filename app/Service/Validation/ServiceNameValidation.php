@@ -23,7 +23,7 @@ class ServiceNameValidation implements ValidationInterface
         return 'Validates the service name';
     }
 
-    public function validate(array $data)
+    public function validate(mixed $data)
     {
         if(!isset($data['service_name'])) {
             throw new \Exception('Service name is required');
