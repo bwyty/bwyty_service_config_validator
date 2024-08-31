@@ -22,5 +22,7 @@ class ValidateCommand
         $appData = $this->configDataCatcher->catchConfigData();
 
         $this->validationStack->validate($appData);
+
+        $output->writeln('-> Validation complete');
     }
 }
