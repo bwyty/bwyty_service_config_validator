@@ -16,6 +16,8 @@ class ValidationStack {
         foreach($this->validations as $validation) {
             yield 'start' => $validation->getValidationName();
 
+            yield 'description' => $validation->getValidationDescription();
+
             $validation->validate($data);
 
             yield 'end' => $validation->getValidationName();
