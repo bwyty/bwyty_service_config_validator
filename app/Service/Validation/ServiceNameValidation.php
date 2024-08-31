@@ -34,7 +34,7 @@ class ServiceNameValidation implements ValidationInterface
         }
 
         if($data['service_name'] !== $this->repoNameCatcher->catchRepoName()) {
-            throw new \Exception('Service name does not match the repository name');
+            throw new \Exception('Service name does not match the repository name.' . PHP_EOL . 'Service name: ' . $data['service_name'] . PHP_EOL . 'Repository name: ' . $this->repoNameCatcher->catchRepoName());
         }
     }
 }
