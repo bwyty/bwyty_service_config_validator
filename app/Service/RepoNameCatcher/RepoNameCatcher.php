@@ -11,6 +11,6 @@ class RepoNameCatcher implements RepoNameCatcherInterface
             throw new \Exception('Could not get repository name');
         }
 
-        return $repoName;
+        return explode('/', $repoName)[1];
     }
 }
