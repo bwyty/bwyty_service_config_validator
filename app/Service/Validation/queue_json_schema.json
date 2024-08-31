@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "available": {
+      "type": "boolean"
+    },
+    "engine": {
+      "type": "string",
+      "enum": ["cloud_tasks"]
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "rate_limits": {
+          "type": "object",
+          "properties": {
+            "max_burst_size": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max_concurrent_dispatches": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max_dispatches_per_second": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "max_burst_size",
+            "max_concurrent_dispatches",
+            "max_dispatches_per_second"
+          ],
+          "additionalProperties": false
+        },
+        "retry_config": {
+          "type": "object",
+          "properties": {
+            "max_attempts": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max_backoff": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max_doublings": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "min_backoff": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "max_attempts",
+            "max_backoff",
+            "max_doublings",
+            "min_backoff"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": ["rate_limits", "retry_config"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["available"],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "available": { "const": true }
+        },
+        "required": ["available"]
+      },
+      "then": {
+        "properties": {
+          "engine": { "enum": ["cloud_tasks"] }
+        },
+        "required": ["config"]
+      }
+    }
+  ],
+  "additionalProperties": false
+}
