@@ -21,7 +21,13 @@ class ValidateCommand
 
         $appData = $this->configDataCatcher->catchConfigData();
 
-        $this->validationStack->validate($appData);
+        foreach ($this->validationStack->validate($appData) as $key => $name) {
+            if ($key === 'start') {
+                echo $name . ' - Started' . PHP_EOL;
+            } elseif ($key === 'end') {
+                echo $name . ' - Passed' . PHP_EOL;
+            }
+        }
 
         $output->writeln('-> Validation complete');
     }
