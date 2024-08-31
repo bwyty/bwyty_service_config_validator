@@ -1,0 +1,12 @@
+{
+    "name": "bwyty/bwyty_service_config_validator",
+    "autoload": {
+        "psr-4": {
+            "Bwyty\\ServiceConfigValidator\\": "app/"
+        }
+    },
+    "require": {
+        "mnapoli/silly": "^1.9",
+        "php-di/php-di": "^7.0"
+    }
+}
