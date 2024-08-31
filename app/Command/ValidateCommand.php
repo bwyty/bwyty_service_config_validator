@@ -23,12 +23,12 @@ class ValidateCommand
 
         foreach ($this->validationStack->validate($appData) as $key => $name) {
             match ($key) {
-                'start' => $output->writeln(PHP_EOL . '<info>-> Starting validation: ' . $name . '</info>'),
+                'start' => $output->writeln(PHP_EOL . '-> Starting validation: ' . $name),
                 'description' => $output->writeln('-> ' . $name),
-                'end' => $output->writeln('<fg=green>-> Finished validation: ' . $name . '</>'),
+                'end' => $output->writeln('-> Finished validation: ' . $name . PHP_EOL),
             };
         }
 
-        $output->writeln(PHP_EOL . '-> Validation complete');
+        $output->writeln('-> Validation complete');
     }
 }
