@@ -22,6 +22,7 @@ class ValidateCommand
         $appData = $this->configDataCatcher->catchConfigData();
 
         foreach ($this->validationStack->validate($appData) as $key => $name) {
+            $output->writeln('');
             match ($key) {
                 'start' => $output->writeln("<info>-> Starting validation: $name</info>"),
                 'description' => $output->writeln("-> $name"),
